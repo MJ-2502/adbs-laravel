@@ -11,7 +11,8 @@ class ChirpController extends Controller
                 'author' => 'Alice',
                 'message' => 'Hello, world!',
                 'time' => '4 minutes ago',
-            ],        [
+            ],
+            [
                 'author' => 'Bob',
                 'message' => 'Laravel is awesome!',
                 'time' => '10 minutes ago',
