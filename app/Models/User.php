@@ -21,6 +21,9 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'role',
+        'address',
+        'contact_number',
     ];
 
     /**
@@ -44,5 +47,25 @@ class User extends Authenticatable
             'email_verified_at' => 'datetime',
             'password' => 'hashed',
         ];
+    }
+
+    public function certificateRequests()
+    {
+        return $this->hasMany(CertificateRequest::class);
+    }
+
+    public function processedRequests()
+    {
+        return $this->hasMany(CertificateRequest::class, 'processed_by');
+    }
+
+    public function isAdmin()
+    {
+        return $this->role === 'admin';
+    }
+
+    public function isResident()
+    {
+        return $this->role === 'resident';
     }
 }
